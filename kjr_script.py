@@ -68,6 +68,11 @@ def compare_tasks(job_description, report):
 
     return scores
 
+@app.route('/', methods=['GET'])
+def testing_hello_world():
+    return "Hello, world!"
+
+
 @app.route('/evaluate', methods=['POST'])
 def extract_matching_sentences():
     # Get the uploaded files from the request
