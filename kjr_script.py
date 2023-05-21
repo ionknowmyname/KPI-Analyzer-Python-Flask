@@ -73,7 +73,7 @@ def testing_hello_world():
     return "Hello, world!"
 
 
-@app.route('/evaluate', methods=['POST'])
+@app.route('/', methods=['POST'])
 def extract_matching_sentences():
     # Get the uploaded files from the request
     report_file = request.files.get('report')
@@ -117,4 +117,4 @@ def extract_matching_sentences():
     return result
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=os.getenv('PORT'))
+    app.run(threaded=True, host='0.0.0.0', port=os.getenv('PORT'))
