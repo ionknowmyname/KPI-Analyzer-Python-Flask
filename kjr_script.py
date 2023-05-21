@@ -9,6 +9,8 @@ from flask import Flask, request, send_file
 from cloudinary.uploader import upload
 import cloudinary.api
 import dotenv
+import nltk
+nltk.download('punkt')
 
 
 dotenv.load_dotenv()
