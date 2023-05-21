@@ -1,7 +1,9 @@
 import os
 import argparse
 import PyPDF2
-from nltk.tokenize import sent_tokenize
+# import nltk
+# nltk.download('punkt')
+from nltk import sent_tokenize
 import torch
 from transformers import BertTokenizer, BertModel
 from sklearn.metrics.pairwise import cosine_similarity
@@ -9,8 +11,8 @@ from flask import Flask, request, send_file
 from cloudinary.uploader import upload
 import cloudinary.api
 import dotenv
-import nltk
-nltk.download('punkt')
+
+
 
 
 dotenv.load_dotenv()
@@ -27,8 +29,8 @@ def extract_text_from_pdf(file_path):
         return text.lower()
 
 def preprocess_text(text):
-    text = text.replace('•', '-')
-    preprocessed_sentences = sent_tokenize(text)
+    preprocessed_sentences = text.replace('•', '-')   # text
+    # preprocessed_sentences = sent_tokenize(text)
     return preprocessed_sentences
 
 def compare_tasks(job_description, report):
